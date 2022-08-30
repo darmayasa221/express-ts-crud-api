@@ -30,6 +30,7 @@
     // "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
     "baseUrl": ".",                                  /* Specify the base directory to resolve non-relative module names. */
     "paths": {
+      "@Applications/*":["src/Applications/*"],
       "@Domains/*":["src/Domains/*"],
       "@Infrastructures/*": ["src/Infrastructures/*"],
       "@Interface/*": ["src/Interfaces/*"]
@@ -105,5 +106,5 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
     },
     "include": ["./*.js", "./*.ts", "src/**/*.ts" ],
-    "exclude": ["**/test/*"]
+    "exclude": ["**/test/*","**/_test/*"]
 }

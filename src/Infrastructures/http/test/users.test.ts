@@ -1,5 +1,4 @@
 import request from 'supertest';
-
 import app from '../createServer';
 describe('HTTP GET /users', () => {
   it('should response 200', async () => {
