@@ -9,10 +9,8 @@
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "project": [
-            "./tsconfig.json"
-        ]
-    },
+        "project": ["./tsconfig.json", "./jest.config.js"]
+      },
     "rules": {
         "comma-dangle": 0,
         "no-underscore-dangle": 0,
@@ -31,6 +29,5 @@
         "import/resolver": {
             "typescript": {}
         }
-
     }
 }

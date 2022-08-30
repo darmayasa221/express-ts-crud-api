@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-   "start:dev": "ts-node src/index.ts",
-   "dev": "nodemon src/index.ts",
-   "build": "tsc",
-   "lint": "eslint --fix src",
-   "test": "jest --coverage",
-   "test:watch": "jest --watchAll --coverage"
+    "start": "node dist/app.js",
+    "dev": "nodemon -r tsconfig-paths/register src/app.ts",
+    "build": "rm -rf dist && tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "lint": "eslint --fix src",
+    "test": "jest --coverage",
+    "test:watch": "jest --watchAll --coverage"
   },
   "repository": {
     "type": "git",
@@ -48,6 +48,7 @@
     "supertest": "^6.2.4",
     "ts-jest": "^28.0.8",
     "ts-node": "^10.9.1",
+    "tsc-alias": "^1.7.0",
     "typescript": "^4.8.2"
   }
 }
