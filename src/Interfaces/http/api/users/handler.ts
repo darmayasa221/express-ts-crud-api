@@ -1,4 +1,3 @@
-import { IRegister } from '@Domains/user/entities/Register';
 import { Request, Response } from 'express';
 
 export interface IUsersHandler {
@@ -13,7 +12,7 @@ export default class UsersHandler implements IUsersHandler {
       .json({
         status: 'success',
         message: 'get users',
-        data: [],
+        data: res.locals.data,
       });
   }
  
@@ -27,13 +26,12 @@ export default class UsersHandler implements IUsersHandler {
       });
   }
 
-  async postUserHandler(req: Request, res: Response<{ status: string, message: string, data: IRegister }>) {
+  async postUserHandler(req: Request, res: Response<{ status: string, message: string }>) {
     res
       .status(201)
       .json({
         status:'success',
         message:'register success',
-        data : res.locals.registered,
       });
   }
 }

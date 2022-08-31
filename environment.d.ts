@@ -4,6 +4,7 @@ declare global {
     interface ProcessEnv {
       HOST:string;
       PORT:number;
+      MONGO_URI:string;
     }
   }
 }

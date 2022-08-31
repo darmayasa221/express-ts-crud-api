@@ -1,12 +1,13 @@
-import express, { Application,  json,  NextFunction,  Request,  Response,  Router } from 'express';
+import express, { json,  NextFunction,  Request,  Response,  Router } from 'express';
 import cors from 'cors';
 import users from '@Interface/http/api/users';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import { IResponseError } from '@Domains/response/entities/ResponseError';
-const app: Application = express();
-const router = Router();
+import container from '@Infrastructures/container';
 
+const app = express();
+const router = Router();
 
 app.use([
   cors(),
@@ -14,7 +15,7 @@ app.use([
   helmet(), 
 ]);
 
-app.use('/api/users', [json(), users(router)]);
+app.use('/api/users', [json(), users({ router, container })]);
 //error handler
 app.use((err: TypeError, req:Request, res: Response<IResponseError>, next:NextFunction) => {
   res.status(400).json({
